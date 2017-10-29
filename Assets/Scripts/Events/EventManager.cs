@@ -8,6 +8,8 @@ using UnityEngine.Events;
  * Les différentes classes peuvent demander à être notifiée d'un événement par l'appel d'une méthode.
  * Quand l'événement se produit (peut être déclenché par une autre classe), les abonnés sont appelés via leur méthode.
  * Les classes peuvent demander à ne plus être notifiées à tout moment.
+ * 
+ * Cette classe gère aussi les causalités à réaliser après une action.
  */
 public class EventManager {
 	/**
@@ -16,7 +18,7 @@ public class EventManager {
 	private Dictionary<string, UnityEvent> events;
 
 	/**
-	 * Dictionnaire chaîne - liste de chaîne liant les causalités des événements : un évenement terminé peut en déclencher plusieurs autres
+	 * Dictionnaire chaîne - liste de chaîne liant les causalités des événements : une action terminée peut en déclencher plusieurs autres
 	 */
 	private Dictionary<string, List<string>> causalities;
 
@@ -72,7 +74,7 @@ public class EventManager {
 
 	/**
 	 * Ajoute un lien de causalité avec un événement
-	 * @param afterEvent Evénement déclencheur
+	 * @param afterEvent Action déclencheuse
 	 * @param invokeEvent Evénement à déclencher après l'exécution de afterEvent
 	 */
 	public static void AddCausality(string afterEvent, string invokeEvent) {
@@ -88,11 +90,12 @@ public class EventManager {
 	}
 
 	/**
-	 * Déclenche les liens de causalité après exécution d'un événement
-	 * @param eventDone Nom de l'évenement terminé
+	 * Déclenche les liens de causalité après exécution d'une action
+	 * @param eventDone Nom de l'action terminée
 	 */
 	public static void Done(string eventDone) {
 		List<string> eventsToInvoke = null;
+		//On déclenche tous les événements listés dans les causalités de l'action terminée
 		if (Instance.causalities.TryGetValue(eventDone, out eventsToInvoke)) {
 			foreach (string eventToInvoke in eventsToInvoke) {
 				Trigger (eventToInvoke);
