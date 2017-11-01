@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: bd03874483b7e40febe98c90f7a66d6a
+timeCreated: 1509119491
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Belden_Desk01
+    100004: Belden_Desk02
+    100006: Belden_Desk03
+    100008: Belden_Desk04
+    100010: Belden_Desk05
+    100012: Belden_Desk06
+    100014: Belden_Desk07
+    100016: Belden_Desk08
+    100018: Belden_Desk09
+    100020: Belden_Desk10
+    100022: Belden_Desk11
+    100024: Belden_Desk12
+    100026: Belden_Desk13
+    100028: Belden_Desk14
+    100030: Belden_Desk15
+    100032: Belden_Desk16
+    100034: Belden_Desk17
+    100036: Belden_Desk18
+    100038: Belden_Desk19
+    400000: //RootNode
+    400002: Belden_Desk01
+    400004: Belden_Desk02
+    400006: Belden_Desk03
+    400008: Belden_Desk04
+    400010: Belden_Desk05
+    400012: Belden_Desk06
+    400014: Belden_Desk07
+    400016: Belden_Desk08
+    400018: Belden_Desk09
+    400020: Belden_Desk10
+    400022: Belden_Desk11
+    400024: Belden_Desk12
+    400026: Belden_Desk13
+    400028: Belden_Desk14
+    400030: Belden_Desk15
+    400032: Belden_Desk16
+    400034: Belden_Desk17
+    400036: Belden_Desk18
+    400038: Belden_Desk19
+    2300000: Belden_Desk01
+    2300002: Belden_Desk02
+    2300004: Belden_Desk03
+    2300006: Belden_Desk04
+    2300008: Belden_Desk05
+    2300010: Belden_Desk06
+    2300012: Belden_Desk07
+    2300014: Belden_Desk08
+    2300016: Belden_Desk09
+    2300018: Belden_Desk10
+    2300020: Belden_Desk11
+    2300022: Belden_Desk12
+    2300024: Belden_Desk13
+    2300026: Belden_Desk14
+    2300028: Belden_Desk15
+    2300030: Belden_Desk16
+    2300032: Belden_Desk17
+    2300034: Belden_Desk18
+    2300036: Belden_Desk19
+    3300000: Belden_Desk01
+    3300002: Belden_Desk02
+    3300004: Belden_Desk03
+    3300006: Belden_Desk04
+    3300008: Belden_Desk05
+    3300010: Belden_Desk06
+    3300012: Belden_Desk07
+    3300014: Belden_Desk08
+    3300016: Belden_Desk09
+    3300018: Belden_Desk10
+    3300020: Belden_Desk11
+    3300022: Belden_Desk12
+    3300024: Belden_Desk13
+    3300026: Belden_Desk14
+    3300028: Belden_Desk15
+    3300030: Belden_Desk16
+    3300032: Belden_Desk17
+    3300034: Belden_Desk18
+    3300036: Belden_Desk19
+    4300000: Belden_Desk02
+    4300002: Belden_Desk03
+    4300004: Belden_Desk04
+    4300006: Belden_Desk05
+    4300008: Belden_Desk06
+    4300010: Belden_Desk07
+    4300012: Belden_Desk08
+    4300014: Belden_Desk09
+    4300016: Belden_Desk10
+    4300018: Belden_Desk11
+    4300020: Belden_Desk12
+    4300022: Belden_Desk13
+    4300024: Belden_Desk14
+    4300026: Belden_Desk15
+    4300028: Belden_Desk16
+    4300030: Belden_Desk01
+    4300032: Belden_Desk17
+    4300034: Belden_Desk18
+    4300036: Belden_Desk19
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
