@@ -17,16 +17,12 @@ public class InteractionTest : MonoBehaviour, IInteractable {
 		availableInteractions.Add(InteractionType.Observe, new UnityAction (Observe));
 		availableInteractions.Add(InteractionType.Use, new UnityAction (Use));
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public Dictionary<InteractionType, UnityAction> GetInteractions (GameObject source) {
-		Dictionary<InteractionType, UnityAction> interactions = new Dictionary<InteractionType, UnityAction> ();
+		var interactions = new Dictionary<InteractionType, UnityAction> ();
 
-		foreach (KeyValuePair<InteractionType, UnityAction> pair in availableInteractions) {
+		//Pour chaque interaction proposée par l'objet, si elle est réalisable dans le contexte actuel, on l'ajoute
+		foreach (var pair in availableInteractions) {
 			if (im.CanInteract(source, gameObject, pair.Key))
 				interactions.Add (pair.Key, new UnityAction (pair.Value));
 		}

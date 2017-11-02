@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /**
  * Ce script gère les interactions du joueur principal, y compris le ray-casting.
@@ -36,10 +37,13 @@ public class PlayerInteractions : MonoBehaviour {
 	}
 
 	void Update () {
-		CheckForRaycast ();	
+		PerformRaycast ();	
 	}
 
-	private void CheckForRaycast() {
+	/**
+	 * Gère le raycasting du joueur, et appelle les fonctions en charge des interactions et des éléments graphiques.
+	 */
+	private void PerformRaycast () {
 		//Là où regarde le joueur
 		Ray ray = m_Camera.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;
@@ -47,13 +51,39 @@ public class PlayerInteractions : MonoBehaviour {
 		if(Physics.Raycast (ray, out hit, Mathf.Infinity)) {
 			//Affichage du rayon
 			DrawRaycast (hit.point);
+
 			GameObject obj = hit.collider.gameObject;
-			//Si l'objet propose des interactions, on affiche un halo
-			if (obj.GetComponent<IInteractable> () != null) {
+			IInteractable objScript;
+			//Si l'objet propose des interactions, on affiche un halo et on écoute les entrées
+			if ((objScript = obj.GetComponent<IInteractable> ()) != null) {
 				AddHalo (obj);
+				//Gestion des entrées de l'utilisateur
+				CheckInputs (objScript);
 			} else {
 				DisableHalo ();
 			}
+		}
+	}
+
+	/**
+	 * Gère les interactions entre le joueur (via les input) et les objets interactifs (i.e. avec un composant implémentant IInteractable)
+	 * @param objScript Objet implémentant IInteractable
+	 */
+	private void CheckInputs (IInteractable objScript) {
+		//On récupère les interactions possibles dans ce contexte
+		var interactions = objScript.GetInteractions (gameObject);
+
+		//Bouton gauche pressé, observation
+		if (Input.GetMouseButtonDown (0)) {
+			UnityAction observe;
+			if (interactions.TryGetValue (InteractionType.Observe, out observe))
+				observe.Invoke ();
+		}
+		//Bouton droit pressé, utilisation
+		else if (Input.GetMouseButtonDown (1)) {
+			UnityAction use;
+			if(interactions.TryGetValue(InteractionType.Use, out use))
+				use.Invoke ();
 		}
 	}
 
