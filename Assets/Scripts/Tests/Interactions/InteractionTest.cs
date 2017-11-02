@@ -13,6 +13,7 @@ public class InteractionTest : MonoBehaviour, IInteractable {
 		im = InteractionManager.Instance;	
 
 		// Add available interactions
+		availableInteractions = new Dictionary<InteractionType, UnityAction>();
 		availableInteractions.Add(InteractionType.Observe, new UnityAction (Observe));
 		availableInteractions.Add(InteractionType.Use, new UnityAction (Use));
 	}
