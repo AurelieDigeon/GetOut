@@ -53,9 +53,9 @@ public class PlayerInteractions : MonoBehaviour {
 			DrawRaycast (hit.point);
 
 			GameObject obj = hit.collider.gameObject;
-			IInteractable objScript;
+			InteractionBase objScript;
 			//Si l'objet propose des interactions, on affiche un halo et on écoute les entrées
-			if ((objScript = obj.GetComponent<IInteractable> ()) != null) {
+			if ((objScript = obj.GetComponent<InteractionBase> ()) != null) {
 				AddHalo (obj);
 				//Gestion des entrées de l'utilisateur
 				CheckInputs (objScript);
@@ -69,7 +69,7 @@ public class PlayerInteractions : MonoBehaviour {
 	 * Gère les interactions entre le joueur (via les input) et les objets interactifs (i.e. avec un composant implémentant IInteractable)
 	 * @param objScript Objet implémentant IInteractable
 	 */
-	private void CheckInputs (IInteractable objScript) {
+	private void CheckInputs (InteractionBase objScript) {
 		//On récupère les interactions possibles dans ce contexte
 		var interactions = objScript.GetInteractions (gameObject);
 
@@ -118,6 +118,9 @@ public class PlayerInteractions : MonoBehaviour {
 		haloBehaviour.enabled = false;
 	}
 
+	/**
+	 * Active le halo
+	 */
 	private void EnableHalo() {
 		Behaviour haloBehaviour = (Behaviour)halo.GetComponent ("Halo");
 		haloBehaviour.enabled = true;
