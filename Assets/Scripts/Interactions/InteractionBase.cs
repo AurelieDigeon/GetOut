@@ -14,14 +14,18 @@ using UnityEngine.Events;
 public abstract class InteractionBase : MonoBehaviour {
 	protected InteractionManager im = InteractionManager.Instance;
 	protected Dictionary<InteractionType, UnityAction> availableInteractions = new Dictionary<InteractionType, UnityAction>();
-	
+
+	/**
+	 * Renvoie les interactions proposées par l'objet dans le contexte actuel
+	 * @param source Origine de la demande d'interaction
+	 */
 	public Dictionary<InteractionType, UnityAction> GetInteractions (GameObject source) {
 		var interactions = new Dictionary<InteractionType, UnityAction> ();
 
 		//Pour chaque interaction proposée par l'objet, si elle est réalisable dans le contexte actuel, on l'ajoute
 		foreach (var pair in availableInteractions) {
 			if (im.CanInteract(source, gameObject, pair.Key))
-				interactions.Add (pair.Key, new UnityAction (pair.Value));
+				interactions.Add (pair.Key, pair.Value);
 		}
 		return interactions;
 	}

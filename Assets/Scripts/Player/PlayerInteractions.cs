@@ -8,7 +8,7 @@ using UnityEngine.Events;
  */
 public class PlayerInteractions : MonoBehaviour {
 	/**
-	 * Prefab contenant le halo de lumière
+	 * Prefab contenant le Halo
 	 */
 	public GameObject HaloPrefab;
 
@@ -23,17 +23,16 @@ public class PlayerInteractions : MonoBehaviour {
 	private LineRenderer m_Line;
 
 	/**
-	 * Halo à assigner à un objet
+	 * Controlleur du Halo
 	 */
-	private GameObject halo;
+	private HaloController m_Halo;
 
 	void Start() {
 		m_Camera = Camera.main;
 		m_Line = GetComponent<LineRenderer> ();
 		m_Line.enabled = false;
-
-		halo = Instantiate (HaloPrefab) as GameObject;
-		DisableHalo ();
+		m_Halo = new HaloController ();
+		m_Halo.Init (Instantiate(HaloPrefab));
 	}
 
 	void Update () {
@@ -56,11 +55,13 @@ public class PlayerInteractions : MonoBehaviour {
 			InteractionBase objScript;
 			//Si l'objet propose des interactions, on affiche un halo et on écoute les entrées
 			if ((objScript = obj.GetComponent<InteractionBase> ()) != null) {
-				AddHalo (obj);
+				m_Halo.SwitchHalo (obj);
 				//Gestion des entrées de l'utilisateur
 				CheckInputs (objScript);
-			} else {
-				DisableHalo ();
+			}
+			//Sinon, on s'assure que le halo n'est pas affiché
+			else {
+				m_Halo.RemoveHalo ();
 			}
 		}
 	}
@@ -95,34 +96,5 @@ public class PlayerInteractions : MonoBehaviour {
 		m_Line.enabled = true;
 		m_Line.SetPosition (0, transform.position);
 		m_Line.SetPosition (1, hitPoint);
-	}
-
-	/**
-	 * Active le halo et change son parent
-	 * @param obj Objet concerné
-	 */
-	private void AddHalo(GameObject obj) {
-		//Si l'objet n'a pas déjà de Halo
-		if (halo.transform.parent != obj.transform) {
-			//Ajout effectif du halo comme enfant relatif de l'objet
-			halo.transform.SetParent (obj.transform, false);
-		}
-		EnableHalo ();
-	}
-
-	/**
-	 * Désactive le halo
-	 */
-	private void DisableHalo() {
-		Behaviour haloBehaviour = (Behaviour)halo.GetComponent ("Halo");
-		haloBehaviour.enabled = false;
-	}
-
-	/**
-	 * Active le halo
-	 */
-	private void EnableHalo() {
-		Behaviour haloBehaviour = (Behaviour)halo.GetComponent ("Halo");
-		haloBehaviour.enabled = true;
 	}
 }
