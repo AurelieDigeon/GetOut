@@ -17,5 +17,6 @@ public class InteractionTest : InteractionBase {
 
 	public void Use() {
 		Debug.Log ("use");
+		EventManager.Done("UseBall");
 	}
 }
