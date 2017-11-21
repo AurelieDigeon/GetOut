@@ -510,6 +510,108 @@ ModelImporter:
     4300196: ID129
     4300198: ID139
     9500000: //RootNode
+    11100000: //RootNode
+    11100002: group_0
+    11100004: group_1
+    11100006: group_2
+    11100008: group_3
+    11100010: group_4
+    11100012: group_5
+    11100014: group_6
+    11100016: ID1005
+    11100018: ID1015
+    11100020: ID1025
+    11100022: ID1035
+    11100024: ID129
+    11100026: ID139
+    11100028: ID149
+    11100030: ID170
+    11100032: ID180
+    11100034: ID190
+    11100036: ID205
+    11100038: ID215
+    11100040: ID225
+    11100042: ID235
+    11100044: ID245
+    11100046: ID255
+    11100048: ID265
+    11100050: ID275
+    11100052: ID285
+    11100054: ID295
+    11100056: ID305
+    11100058: ID315
+    11100060: ID325
+    11100062: ID335
+    11100064: ID345
+    11100066: ID355
+    11100068: ID365
+    11100070: ID375
+    11100072: ID385
+    11100074: ID395
+    11100076: ID405
+    11100078: ID415
+    11100080: ID425
+    11100082: ID435
+    11100084: ID445
+    11100086: ID455
+    11100088: ID465
+    11100090: ID475
+    11100092: ID485
+    11100094: ID495
+    11100096: ID505
+    11100098: ID515
+    11100100: ID525
+    11100102: ID535
+    11100104: ID545
+    11100106: ID555
+    11100108: ID565
+    11100110: ID575
+    11100112: ID585
+    11100114: ID595
+    11100116: ID605
+    11100118: ID615
+    11100120: ID62
+    11100122: ID625
+    11100124: ID635
+    11100126: ID645
+    11100128: ID655
+    11100130: ID665
+    11100132: ID675
+    11100134: ID685
+    11100136: ID695
+    11100138: ID705
+    11100140: ID715
+    11100142: ID725
+    11100144: ID735
+    11100146: ID745
+    11100148: ID755
+    11100150: ID765
+    11100152: ID77
+    11100154: ID775
+    11100156: ID785
+    11100158: ID795
+    11100160: ID805
+    11100162: ID815
+    11100164: ID825
+    11100166: ID835
+    11100168: ID845
+    11100170: ID855
+    11100172: ID865
+    11100174: ID87
+    11100176: ID875
+    11100178: ID885
+    11100180: ID895
+    11100182: ID905
+    11100184: ID915
+    11100186: ID925
+    11100188: ID935
+    11100190: ID945
+    11100192: ID955
+    11100194: ID965
+    11100196: ID97
+    11100198: ID975
+    11100200: ID985
+    11100202: ID995
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -559,12 +661,13 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
-    extraExposedTransformPaths: []
+    extraExposedTransformPaths:
+    - group_0
     extraUserProperties: []
     clipAnimations: []
     isReadable: 1

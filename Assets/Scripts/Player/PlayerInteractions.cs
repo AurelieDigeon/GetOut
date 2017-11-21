@@ -55,7 +55,12 @@ public class PlayerInteractions : MonoBehaviour {
 			InteractionBase objScript;
 			//Si l'objet propose des interactions, on affiche un halo et on écoute les entrées
 			if ((objScript = obj.GetComponent<InteractionBase> ()) != null) {
-				m_Halo.SwitchHalo (obj);
+
+				/* Le piano bugge au niveau des positions des touches, elles sont toutes à 0/0/0 (typique d'un import).
+				Le halo s'affiche donc mal, on le désactive dans ce cas. TODO faire ça plus proprement */
+				if(!(objScript is PianoKeyController))
+					m_Halo.SwitchHalo (obj);
+
 				//Gestion des entrées de l'utilisateur
 				CheckInputs (objScript);
 			}
