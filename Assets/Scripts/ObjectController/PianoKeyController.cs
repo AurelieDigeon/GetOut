@@ -15,8 +15,14 @@ public class PianoKeyController : InteractionBase {
 	 */
 	private Animation animation;
 
+	/**
+	 * Son de la touche
+	 */
+	private AudioSource sound;
+
 	void Start () {
 		animation = GetComponent<Animation> ();
+		sound = GetComponent<AudioSource> ();
 
 		//Ajout des interactions
 		availableInteractions.Add (InteractionType.Observe, new UnityAction (ReadKey));
@@ -32,5 +38,6 @@ public class PianoKeyController : InteractionBase {
 	 */
 	private void PressKey() {
 		animation.Play ();
+		sound.Play ();
 	}
 }
