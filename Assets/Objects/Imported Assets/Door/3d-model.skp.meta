@@ -1,0 +1,153 @@
+fileFormatVersion: 2
+guid: e7effa4015d104b438141589c94daa86
+timeCreated: 1511373266
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000
+  assetHash:
+    serializedVersion: 2
+    Hash: bac6ac5c74e1d926a691dc2a566503be
+  longitude: -105.283
+  latitude: 40.017
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 0.81806064, y: 1.505554, z: -5.8601456}
+      lookAt: {x: 0.8423619, y: 1.5259935, z: -0.74835473}
+      up: {x: -0.000019008135, y: 0.999992, z: -0.0039983676}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes:
+    - camera:
+        position: {x: 0.812162, y: 1.4421519, z: -5.355068}
+        lookAt: {x: 0.8364633, y: 1.4625913, z: -0.24327718}
+        up: {x: -0.000019008135, y: 0.999992, z: -0.0039983676}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Scene 1
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Component#2
+    100004: Door
+    100006: Door, (Half)
+    100008: Door, (Half) 1
+    100010: Frame
+    100012: Frame, (Half)
+    100014: Frame, (Half) 1
+    100016: Handle
+    100018: Handle 1
+    100020: Handle, (Half)
+    100022: Handle, (Half) 1
+    100024: Handle, (Half) 2
+    100026: Handle, (Half) 3
+    400000: //RootNode
+    400002: Component#2
+    400004: Door
+    400006: Door, (Half)
+    400008: Door, (Half) 1
+    400010: Frame
+    400012: Frame, (Half)
+    400014: Frame, (Half) 1
+    400016: Handle
+    400018: Handle 1
+    400020: Handle, (Half)
+    400022: Handle, (Half) 1
+    400024: Handle, (Half) 2
+    400026: Handle, (Half) 3
+    2300000: Door, (Half)
+    2300002: Door, (Half) 1
+    2300004: Frame, (Half)
+    2300006: Frame, (Half) 1
+    2300008: Handle, (Half)
+    2300010: Handle, (Half) 1
+    2300012: Handle, (Half) 2
+    2300014: Handle, (Half) 3
+    3300000: Door, (Half)
+    3300002: Door, (Half) 1
+    3300004: Frame, (Half)
+    3300006: Frame, (Half) 1
+    3300008: Handle, (Half)
+    3300010: Handle, (Half) 1
+    3300012: Handle, (Half) 2
+    3300014: Handle, (Half) 3
+    4300000: Mesh Frame, (Half)
+    4300002: Mesh Door, (Half)
+    4300004: Mesh Handle, (Half)
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
