@@ -12,6 +12,7 @@ public class InteractionTest : InteractionBase {
 	}
 
 	public void Observe() {
+		defaultInteractions.Observe ("balle");
 		Debug.Log ("observe");
 	}
 

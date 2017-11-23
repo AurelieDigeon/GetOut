@@ -27,6 +27,11 @@ public class PlayerInteractions : MonoBehaviour {
 	 */
 	private HaloController m_Halo;
 
+	/**
+	 * Sauvegarde de l'objet Interactable précédemment raycasté
+	 */
+	private InteractionBase oldObject = null;
+
 	void Start() {
 		m_Camera = Camera.main;
 		m_Line = GetComponent<LineRenderer> ();
@@ -55,6 +60,7 @@ public class PlayerInteractions : MonoBehaviour {
 			InteractionBase objScript;
 			//Si l'objet propose des interactions, on affiche un halo et on écoute les entrées
 			if ((objScript = obj.GetComponent<InteractionBase> ()) != null) {
+				oldObject = objScript;
 
 				/* Le piano bugge au niveau des positions des touches, elles sont toutes à 0/0/0 (typique d'un import).
 				Le halo s'affiche donc mal, on le désactive dans ce cas. TODO faire ça plus proprement */
@@ -67,6 +73,11 @@ public class PlayerInteractions : MonoBehaviour {
 			//Sinon, on s'assure que le halo n'est pas affiché
 			else {
 				m_Halo.RemoveHalo ();
+				//On prévient l'objet que l'on ne tente plus d'interragir avec lui
+				if (oldObject != null) {
+					oldObject.EndInteractions ();
+					oldObject = null;
+				}
 			}
 		}
 	}
