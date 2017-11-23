@@ -6,7 +6,7 @@ public class EventCausalityTest : MonoBehaviour {
 	void Awake () {
 		//La fin de l'évenement Test provoque le déclenchement de l'événement OpenDoor
 		EventManager.AddCausality ("Test", "OpenDoor");
-		EventManager.AddCausality("UseBall", "TriggerMainDoor");
+		EventManager.AddCausality("UseBall", "PaperFall");
 		Debug.Log ("Added Test -> OpenDoor causality");
 	}
 }
