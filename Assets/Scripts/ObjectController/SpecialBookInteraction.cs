@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BookInteraction : InteractionBase {
+public class SpecialBookInteraction : InteractionBase {
 
 	// Use this for initialization
 	void Start () {
@@ -12,6 +12,8 @@ public class BookInteraction : InteractionBase {
 	}
 
 	public void Observe() {
-		Debug.Log ("observe book");
+		Debug.Log ("observe special book");
+		EventManager.Done("SpecialBookObserved");
+		availableInteractions.Remove(InteractionType.Observe);
 	}
 }

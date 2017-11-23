@@ -12,5 +12,6 @@ public class TrapDoorController : MonoBehaviour {
 
 	public void open() {
 		this.GetComponent<Animation>().Play("TrapAnimation");
+		this.GetComponent<AudioSource>().Play();
 	}
 }

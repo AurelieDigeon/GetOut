@@ -6,5 +6,7 @@ public class EventCausality : MonoBehaviour {
 	void Awake () {
 		EventManager.AddCausality ("UseTrapdoorSwitch", "OpenTrapdoor");
 		Debug.Log ("Added UseTrapdoorSwitch -> OpenTrapdoor causality");
+		EventManager.AddCausality ("SpecialBookObserved", "PaperFall");
+		Debug.Log ("Added SpecialBookObserved -> PaperFall causality");
 	}
 }
