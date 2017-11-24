@@ -20,13 +20,14 @@ public class InteractionManager  {
 			return instance;
 		}
 	}
+		
 	/**
 	 * Unique méthode publique permettant de vérifier si un objet peut effectuer un type d'interaction sur un autre objet
 	 * @param source Objet demandeur
-	 * @param target Objet receveur
+	 * @param target Objet interactible receveur
 	 * @param type Type d'interaction
 	 */
-	public bool CanInteract(GameObject source, GameObject target, InteractionType type) {
+	public bool CanInteract(GameObject source, InteractionBase target, InteractionType type) {
 		if (type == InteractionType.Observe)
 			return CanObserve (source, target);
 		else if (type == InteractionType.Take)
@@ -39,7 +40,7 @@ public class InteractionManager  {
 	/**
 	 * Indique si un objet peut observer un autre objet
 	 */
-	private bool CanObserve(GameObject source, GameObject target) {
+	private bool CanObserve(GameObject source, InteractionBase target) {
 		//Le joueur peut observer tous les objets qui proposent d'être observés
 		return source.CompareTag("Player");
 	}
@@ -47,14 +48,20 @@ public class InteractionManager  {
 	/**
 	 * Indique si un objet peut prendre un autre objet
 	 */
-	private bool CanTake(GameObject source, GameObject target) {
+	private bool CanTake(GameObject source, InteractionBase target) {
 		return source.CompareTag("Player");
 	}
 
 	/**
 	 * Indique si un objet peut utiliser un autre objet
 	 */
-	private bool CanUse(GameObject source, GameObject target) {
-		return source.CompareTag("Player");
+	private bool CanUse(GameObject source, InteractionBase target) {
+		if (source.CompareTag ("Player")) {
+			if (target.GetType () == typeof(MainDoorController)) {
+				return GameObject.Find ("Player").GetComponent<PlayerInteractions> ().HasKey;
+			}
+			return true;
+		}
+		return false;
 	}
 }

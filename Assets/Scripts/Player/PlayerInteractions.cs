@@ -32,6 +32,9 @@ public class PlayerInteractions : MonoBehaviour {
 	 */
 	private InteractionBase oldObject = null;
 
+	//TODO à remplacer par le système d'inventaire
+	public bool HasKey = false;
+
 	void Start() {
 		m_Camera = Camera.main;
 		m_Line = GetComponent<LineRenderer> ();
@@ -96,11 +99,14 @@ public class PlayerInteractions : MonoBehaviour {
 			if (interactions.TryGetValue (InteractionType.Observe, out observe))
 				observe.Invoke ();
 		}
-		//Bouton droit pressé, utilisation
+		//Bouton droit pressé, utilisation OU récupération
 		else if (Input.GetMouseButtonDown (1)) {
 			UnityAction use;
+			UnityAction take;
 			if(interactions.TryGetValue(InteractionType.Use, out use))
 				use.Invoke ();
+			if(interactions.TryGetValue(InteractionType.Take, out take))
+				take.Invoke ();
 		}
 	}
 

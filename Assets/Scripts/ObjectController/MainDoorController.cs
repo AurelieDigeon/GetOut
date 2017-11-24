@@ -11,6 +11,7 @@ public class MainDoorController : InteractionBase {
 		EventManager.StartListening("TriggerMainDoor", new UnityAction(TriggerMainDoor));
 
 		availableInteractions.Add (InteractionType.Observe, new UnityAction (ObserveDoor));
+		availableInteractions.Add (InteractionType.Use, new UnityAction (TriggerMainDoor));
 	}
 
 	void TriggerMainDoor() {

@@ -33,7 +33,7 @@ public abstract class InteractionBase : MonoBehaviour {
 
 		//Pour chaque interaction proposée par l'objet, si elle est réalisable dans le contexte actuel, on l'ajoute
 		foreach (var pair in availableInteractions) {
-			if (im.CanInteract(source, gameObject, pair.Key))
+			if (im.CanInteract(source, this, pair.Key))
 				interactions.Add (pair.Key, pair.Value);
 		}
 		return interactions;
