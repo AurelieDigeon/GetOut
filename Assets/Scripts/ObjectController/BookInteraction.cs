@@ -5,13 +5,16 @@ using UnityEngine.Events;
 
 public class BookInteraction : InteractionBase {
 
-	// Use this for initialization
+	/**
+	 * Message à afficher lors de la consultation du livre
+	 */
+	public string message;
+
 	void Start () {
-		// Add available interactions
-		availableInteractions.Add(InteractionType.Observe, new UnityAction (Observe));
+		availableInteractions.Add(InteractionType.Observe, new UnityAction (ObserveBook));
 	}
 
-	public void Observe() {
-		Debug.Log ("observe book");
+	public void ObserveBook() {
+		defaultInteractions.Observe (message);	
 	}
 }

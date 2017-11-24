@@ -38,7 +38,7 @@ public class HaloController {
 
 		//On adapte le diamètre du halo ainsi que son intensité en fonction de cette longueur
 		light.range = haloSize + 0.3f;
-		light.intensity = 1 * haloSize;
+		light.intensity = .3f; //*halosize;
 
 		//La lumière devient enfant relatif de l'objet (centre du Collider)
 		halo.gameObject.SetActive (true);

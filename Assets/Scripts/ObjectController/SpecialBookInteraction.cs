@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class SpecialBookInteraction : InteractionBase {
-
-	// Use this for initialization
 	void Start () {
-		// Add available interactions
-		availableInteractions.Add(InteractionType.Observe, new UnityAction (Observe));
+		availableInteractions.Add(InteractionType.Observe, new UnityAction (ObserveSpecialBook));
+		availableInteractions.Add(InteractionType.Use, new UnityAction (UseSpecialBook));
 	}
 
-	public void Observe() {
-		Debug.Log ("observe special book");
-		EventManager.Done("SpecialBookObserved");
-		availableInteractions.Remove(InteractionType.Observe);
+	public void ObserveSpecialBook() {
+		defaultInteractions.Observe ("Ce livre a l'air d'avoir quelque chose de spécial...");
+	}
+
+	public void UseSpecialBook() {
+		EventManager.Done("SpecialBookUsed");
+		availableInteractions.Remove(InteractionType.Use);
 	}
 }
