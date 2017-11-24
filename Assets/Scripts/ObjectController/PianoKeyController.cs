@@ -20,9 +20,21 @@ public class PianoKeyController : InteractionBase {
 	 */
 	private AudioSource sound;
 
+	/**
+	 * Référence au piano lui-même
+	 */
+	private PianoController piano;
+
+	/**
+	 * Nom de la note correspondante
+	 */
+	private char keyNote;
+
 	void Start () {
 		animation = GetComponent<Animation> ();
 		sound = GetComponent<AudioSource> ();
+		piano = GetComponentInParent<PianoController> ();
+		keyNote = gameObject.tag [0];
 
 		//Ajout des interactions
 		availableInteractions.Add (InteractionType.Observe, new UnityAction (ReadKey));
@@ -39,5 +51,7 @@ public class PianoKeyController : InteractionBase {
 	private void PressKey() {
 		animation.Play ();
 		sound.Play ();
+		//On signale au piano la note jouée
+		piano.KeyPressed (keyNote);
 	}
 }
