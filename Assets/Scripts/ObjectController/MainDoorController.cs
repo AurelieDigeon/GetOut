@@ -19,6 +19,6 @@ public class MainDoorController : InteractionBase {
 	}
 
 	private void ObserveDoor() {
-		defaultInteractions.Observe ("Cette porte est fermée à double tour...");
+		defaultInteractions.Observe ("Cette porte est fermée à double tour... Je suis piégé.");
 	}
 }

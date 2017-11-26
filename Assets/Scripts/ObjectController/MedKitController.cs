@@ -7,8 +7,8 @@ public class MedKitController : InteractionBase {
 	void Start () {
 		availableInteractions.Add (InteractionType.Observe, new UnityAction (ObserveMedKit));
 	}
-	
+
 	private void ObserveMedKit() {
-		defaultInteractions.Observe ("Medkit");
+		defaultInteractions.Observe ("C'est une boite de premier soin. Si je me blesse, ça pourrait servir.");
 	}
 }

@@ -22,9 +22,9 @@ public class PianoController : InteractionBase {
 	void Start () {
 		availableInteractions.Add (InteractionType.Observe, new UnityAction (ObservePiano));
 	}
-	
+
 	private void ObservePiano() {
-		defaultInteractions.Observe ("Piano");
+		defaultInteractions.Observe ("Un bien beau piano. Je me demande s'il fonctionne.");
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class PianoController : InteractionBase {
 			//Sinon on avance dans la mélodie
 			else
 				melodyCounter++;
-		} 
+		}
 		//Si erreur, on revient au début
 		else
 			melodyCounter = 0;

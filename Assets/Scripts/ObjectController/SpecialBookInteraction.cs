@@ -10,7 +10,7 @@ public class SpecialBookInteraction : InteractionBase {
 	}
 
 	public void ObserveSpecialBook() {
-		defaultInteractions.Observe ("Ce livre a l'air d'avoir quelque chose de spécial...");
+		defaultInteractions.Observe ("Ce livre a l'air d'être spécial... Le tire est 'Introduction au solfège'.");
 	}
 
 	public void UseSpecialBook() {

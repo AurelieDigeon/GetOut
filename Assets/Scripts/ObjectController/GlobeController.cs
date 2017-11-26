@@ -11,6 +11,6 @@ public class GlobeController : InteractionBase {
 	}
 
 	private void ObserveGlobe() {
-		defaultInteractions.Observe ("Globe");
+		defaultInteractions.Observe ("C'est un vieux globe terrestre, avec beaucoup de poussière.");
 	}
 }
