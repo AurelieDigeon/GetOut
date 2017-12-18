@@ -7,6 +7,10 @@ using UnityEngine;
  */
 public class EventCausality : MonoBehaviour {
 	void Awake () {
+		// Tutoriel
+		// Quand on à observer, on affiche le tuto pour utiliser
+		EventManager.AddCausality ("ObserveTutoBook", "ShowTutoUse");
+
 		//Utilisation du Switch de la trappe
 		EventManager.AddCausality ("UseTrapdoorSwitch", "OpenTrapdoor");
 
