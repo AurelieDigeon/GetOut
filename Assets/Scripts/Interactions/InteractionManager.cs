@@ -58,7 +58,7 @@ public class InteractionManager  {
 	private bool CanUse(GameObject source, InteractionBase target) {
 		if (source.CompareTag ("Player")) {
 			if (target.GetType () == typeof(MainDoorController)) {
-				return GameObject.Find ("Player").GetComponent<PlayerInteractions> ().HasKey;
+				return GameObject.Find ("Wand").GetComponent<PlayerVRInteractions> ().HasKey;
 			}
 			return true;
 		}

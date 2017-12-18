@@ -6,12 +6,13 @@ public class MovePlayer : MonoBehaviour {
 
 
 	public float speed;
-	public GameObject cam;
+	private GameObject cam;
 	private Rigidbody rb;
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody> ();
+		cam = Camera.main.gameObject;
 
 	}
 
@@ -26,9 +27,6 @@ public class MovePlayer : MonoBehaviour {
 
 		Vector3 htempDir = cam.transform.right;
 		htempDir.y = 0;
-
-
-		//rb.MovePosition (transform.position + cam.transform.forward + new Vector3(h,0,v)*Time.deltaTime*speed); 
 
 		if (v < 0)
 		{

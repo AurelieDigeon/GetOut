@@ -9,6 +9,7 @@ public class RightHandController : MonoBehaviour {
 	void Update () {
 		Vector3 handPosition = InputTracking.GetLocalPosition(VRNode.RightHand);
 		Vector3 headPosition = InputTracking.GetLocalPosition (VRNode.CenterEye);
+		//Correction pour ajuster aux tricks de caméra
 		transform.position = Camera.main.transform.position - (headPosition - handPosition);
 		Vector3 rotAngles = InputTracking.GetLocalRotation (VRNode.RightHand).eulerAngles + new Vector3 (90, 0, 0);
 		transform.rotation = Quaternion.Euler(rotAngles);

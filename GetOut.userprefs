@@ -1,13 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GlowShader.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Materials\Custom Materials\VRUIShader.shader">
     <Files>
-      <File FileName="Assets\Scripts\Tests\Interactions\InteractionTest.cs" Line="7" Column="47" />
-      <File FileName="Assets\Scripts\Player\PlayerInteractions.cs" Line="51" Column="55" />
-      <File FileName="Assets\Scripts\SwitchController.cs" Line="16" Column="48" />
-      <File FileName="Assets\Scripts\Interactions\InteractionBase.cs" Line="23" Column="70" />
-      <File FileName="Assets\Scripts\Interactions\InteractionManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GlowShader.shader" Line="40" Column="57" />
+      <File FileName="Assets\Scripts\Player\RightHandController.cs" Line="16" Column="2" />
+      <File FileName="Assets\Scripts\Player\FirstPersonControllerVR.cs" Line="64" Column="10" />
+      <File FileName="Assets\Scripts\Interactions\InteractionManager.cs" Line="61" Column="58" />
+      <File FileName="Assets\Scripts\Player\PlayerVRInteractions.cs" Line="94" Column="37" />
+      <File FileName="Assets\Scripts\Interactions\InteractionDefault.cs" Line="34" Column="5" />
+      <File FileName="Assets\Objects\Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" Line="31" Column="9" />
+      <File FileName="Assets\Materials\Custom Materials\VRUIShader.shader" Line="24" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
