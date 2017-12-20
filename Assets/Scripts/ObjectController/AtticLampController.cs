@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class AtticLampController : InteractionBase {
-	private Light light;
+	private Light lightning;
 
 	/**
 	 * Material pour toggle l'émission
@@ -12,15 +12,15 @@ public class AtticLampController : InteractionBase {
 	public Material mat;
 
 	void Start () {
-		light = gameObject.GetComponentInChildren<Light> ();
+		lightning = gameObject.GetComponentInChildren<Light> ();
 		availableInteractions.Add (InteractionType.Observe, new UnityAction(YeahSorryButThisIsNotTheRightThingToDoJustUseTheLamp));	
 		availableInteractions.Add (InteractionType.Use, new UnityAction(ToggleLight));		
 	}
 	
 	void ToggleLight() {
 		//Changement de l'état de la lumière et de l'émission du material
-		light.enabled = !light.enabled;
-		if (light.enabled) {
+		lightning.enabled = !lightning.enabled;
+		if (lightning.enabled) {
 			mat.EnableKeyword ("_EMISSION");
 			EventManager.Done ("AtticLampOn");
 		} else {

@@ -25,5 +25,13 @@ public class EventCausality : MonoBehaviour {
 
 		//Mélodie jouée : ouverture de la porte de placard
 		EventManager.AddCausality("MelodyPlayed", "TriggerSmallDoor");
+
+		//Puzzle complété : on éteint la cheminée et on active la clé
+		EventManager.AddCausality ("PuzzleCompleted", "TurnOffFireplace");
+		EventManager.AddCausality ("PuzzleCompleted", "ShowMainKey");
+
+		//Puzzle cassé : on allume la cheminée et on désactive la clé
+		EventManager.AddCausality ("PuzzleBroken", "TurnOnFireplace");
+		EventManager.AddCausality ("PuzzleBroken", "HideMainKey");
 	}
 }

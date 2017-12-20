@@ -5,12 +5,12 @@ using UnityEngine.Events;
 
 public class TrapDoorController : MonoBehaviour {
 	private Animator anim;
-	private AudioSource audio;
+	private AudioSource sound;
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
-		audio = GetComponent<AudioSource> ();
+		sound = GetComponent<AudioSource> ();
 		//On écoute les triggers d'ouverture de porte
 		EventManager.StartListening ("OpenTrapdoor", new UnityAction (OpenTrapdoor));
 	}
@@ -20,11 +20,11 @@ public class TrapDoorController : MonoBehaviour {
 	 */
 	public void OpenTrapdoor() {
 		anim.SetBool ("isOpen", true);
-		audio.Play();
+		sound.Play();
 	}
 
 	public void CloseTrapdoor() {
 		anim.SetBool ("isOpen", false);
-		audio.Play();
+		sound.Play();
 	}
 }

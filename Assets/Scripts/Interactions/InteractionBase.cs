@@ -31,7 +31,14 @@ public abstract class InteractionBase : MonoBehaviour {
 	 */
 	protected GameObject source;
 
+	/**
+	 * Paramètre permettant de contrôler l'affichage du Halo lumineux, autorisé par défaut.
+	 */
+	public bool ShowHalo { get; protected set; }
+
 	private void Awake() {
+		ShowHalo = true;
+
 		//Récupération de l'instance des interactions par défaut
 		GameObject defaultInterObj = GameObject.Find ("InteractionDefault");
 		defaultInteractions = defaultInterObj.GetComponent<InteractionDefault> ();

@@ -62,9 +62,8 @@ public class PlayerVRInteractions : MonoBehaviour {
 			if ((objScript = obj.GetComponent<InteractionBase> ()) != null) {
 				oldObject = objScript;
 
-				/* Le piano bugge au niveau des positions des touches, elles sont toutes à 0/0/0 (typique d'un import).
-				Le halo s'affiche donc mal, on le désactive dans ce cas. TODO faire ça plus proprement */
-				if(!(objScript is PianoKeyController))
+				//Afficher le halo en fonction de la propriété dédiée
+				if(objScript.ShowHalo)
 					m_Halo.SwitchHalo (obj);
 
 				//Gestion des entrées de l'utilisateur

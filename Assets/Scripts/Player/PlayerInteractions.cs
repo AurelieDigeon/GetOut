@@ -13,6 +13,11 @@ public class PlayerInteractions : MonoBehaviour {
 	public GameObject HaloPrefab;
 
 	/**
+	 * Vitesse des objets ramassés
+	 */
+	public int TakenSpeed;
+
+	/**
 	 * Caméra depuis laquelle lancer le raycasting
 	 */
 	private Camera m_Camera;
@@ -31,9 +36,6 @@ public class PlayerInteractions : MonoBehaviour {
 	 * Sauvegarde de l'objet Interactable précédemment raycasté
 	 */
 	private InteractionBase oldObject = null;
-
-	//TODO à remplacer par le système d'inventaire
-	public bool HasKey = false;
 
 	void Start() {
 		m_Camera = Camera.main;
@@ -65,11 +67,10 @@ public class PlayerInteractions : MonoBehaviour {
 			if ((objScript = obj.GetComponent<InteractionBase> ()) != null) {
 				oldObject = objScript;
 
-				/* Le piano bugge au niveau des positions des touches, elles sont toutes à 0/0/0 (typique d'un import).
-				Le halo s'affiche donc mal, on le désactive dans ce cas. TODO faire ça plus proprement */
-				if(!(objScript is PianoKeyController))
+				//Afficher le halo en fonction de la propriété dédiée
+				if(objScript.ShowHalo)
 					m_Halo.SwitchHalo (obj);
-
+				
 				//Gestion des entrées de l'utilisateur
 				CheckInputs (objScript);
 			}
@@ -86,8 +87,9 @@ public class PlayerInteractions : MonoBehaviour {
 		//Bouton du milieu relâché, on relâche l'objet ramassé s'il existait
 		//Gestion particulière car on veut le relâcher à tous prix, quelles que soient les situations
 		if (Input.GetMouseButtonUp (2) || Input.GetKeyUp ("t")) {
-			if(oldObject != null) 
+			if (oldObject != null) {
 				oldObject.EndTake (gameObject);
+			}
 		}
 	}
 

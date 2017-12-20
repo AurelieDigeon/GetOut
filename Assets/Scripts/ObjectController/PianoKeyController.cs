@@ -13,7 +13,7 @@ public class PianoKeyController : InteractionBase {
 	/**
 	 * Animation de la touche
 	 */
-	private Animation animation;
+	private Animation anim;
 
 	/**
 	 * Son de la touche
@@ -31,7 +31,10 @@ public class PianoKeyController : InteractionBase {
 	private char keyNote;
 
 	void Start () {
-		animation = GetComponent<Animation> ();
+		//On ne montre pas le Halo sur les touches pour plus de visibilité
+		ShowHalo = false;
+
+		anim = GetComponent<Animation> ();
 		sound = GetComponent<AudioSource> ();
 		piano = GetComponentInParent<PianoController> ();
 		keyNote = gameObject.tag [0];
@@ -49,7 +52,7 @@ public class PianoKeyController : InteractionBase {
 	 * Appui sur la touche, on joue l'animation
 	 */
 	private void PressKey() {
-		animation.Play ();
+		anim.Play ();
 		sound.Play ();
 		//On signale au piano la note jouée
 		piano.KeyPressed (keyNote);

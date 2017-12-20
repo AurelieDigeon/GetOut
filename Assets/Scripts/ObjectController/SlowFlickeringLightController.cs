@@ -5,13 +5,13 @@ using UnityEngine;
 public class SlowFlickeringLightController : MonoBehaviour {
 
 	// Your light gameObject here.
- private Light light;
+	private Light lightning;
 
- // Array of random values for the intensity.
- private float[] smoothing = new float[20];
+ 	// Array of random values for the intensity.
+	private float[] smoothing = new float[10];
 
  void Start(){
-	 light = this.GetComponent<Light>();
+	 lightning = this.GetComponent<Light>();
    // Initialize the array.
    for(int i = 0 ; i < smoothing.Length ; i++){
        smoothing[i] = .0f;
@@ -35,6 +35,6 @@ public class SlowFlickeringLightController : MonoBehaviour {
 
    // Compute the average of the array and assign it to the
    // light intensity.
-   light.intensity = sum / smoothing.Length;
+   lightning.intensity = sum / smoothing.Length;
  }
 }

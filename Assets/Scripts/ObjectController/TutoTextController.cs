@@ -7,7 +7,7 @@ public class TutoTextController : InteractionBase {
 
 	private TextMesh textMesh;
 
-	private AudioSource audio;
+	private AudioSource sound;
 
 	public string InitMessage;
 	public string GoalMessage;
@@ -20,7 +20,7 @@ public class TutoTextController : InteractionBase {
 	// Use this for initialization
 	void Start () {
 		textMesh = GetComponent<TextMesh>();
-		audio = GetComponent<AudioSource> ();
+		sound = GetComponent<AudioSource> ();
 		StartTuto();
 	}
 
@@ -33,17 +33,17 @@ public class TutoTextController : InteractionBase {
 	public void GoalTuto() {
 		textMesh.text = GoalMessage.Replace("\\n","\n");
 		availableInteractions [InteractionType.Observe] = new UnityAction (HaloTuto);
-		audio.Play ();
+		sound.Play ();
 	}
 
 	public void HaloTuto() {
 		textMesh.text = HaloMessage.Replace("\\n","\n");
 		availableInteractions [InteractionType.Observe] = new UnityAction (ShowTutoObserve);
-		audio.Play ();
+		sound.Play ();
 	}
 
 	public void ShowTutoObserve() {
-		audio.Play ();
+		sound.Play ();
 		//On continue le tuto, télé plus observable mais livre observable
 		availableInteractions.Remove (InteractionType.Observe);
 		textMesh.text = ObserveMessage.Replace("\\n","\n");
@@ -56,7 +56,7 @@ public class TutoTextController : InteractionBase {
 	}
 
 	public void ShowTutoUse () {
-		audio.Play ();
+		sound.Play ();
 		//On passe à l'utilisation avec la lampe : on arrête d'écouter l'observation
 		EventManager.StopListening("DoneObserving");
 		textMesh.text = UseMessage.Replace("\\n","\n");
@@ -66,7 +66,7 @@ public class TutoTextController : InteractionBase {
 	}
 
 	public void ShowToTake() {
-		audio.Play ();
+		sound.Play ();
 		//On passe au ramassage d'objet : on arrête d'écouter l'utilisation
 		EventManager.StopListening("DoneUsing");
 		textMesh.text = TakeMessage.Replace("\\n","\n");
@@ -75,7 +75,7 @@ public class TutoTextController : InteractionBase {
 	}
 
 	public void ShowBegin() {
-		audio.Play ();
+		sound.Play ();
 		EventManager.StopListening ("DoneTaking");
 		textMesh.text = BeginGameMessage.Replace("\\n","\n");
 	}

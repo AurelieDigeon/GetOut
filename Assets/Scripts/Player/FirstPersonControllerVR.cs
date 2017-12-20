@@ -97,7 +97,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			//On ramène toujours le collider au niveau de la caméra, au cas où elle bouge spontanément
 			var charCont = GetComponent<CharacterController>();
 			charCont.center = (m_Camera.transform.position - transform.position) / transform.localScale.y;
-			charCont.height = (InputTracking.GetLocalPosition (VRNode.Head).y);
+			charCont.height = (UnityEngine.XR.InputTracking.GetLocalPosition (UnityEngine.XR.XRNode.Head).y);
 			charCont.center = new Vector3(charCont.center.x, charCont.height / 2, charCont.center.z);
 
             float speed;
