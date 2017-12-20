@@ -7,19 +7,76 @@ public class TutoTextController : InteractionBase {
 
 	private TextMesh textMesh;
 
+	private AudioSource audio;
+
+	public string InitMessage;
+	public string GoalMessage;
+	public string HaloMessage;
+	public string ObserveMessage;
+	public string UseMessage;
+	public string TakeMessage;
+	public string BeginGameMessage;
+
 	// Use this for initialization
 	void Start () {
-		textMesh = this.GetComponent<TextMesh>();
-		EventManager.StartListening ("ShowTutoUse", new UnityAction (ShowTutoUse));
+		textMesh = GetComponent<TextMesh>();
+		audio = GetComponent<AudioSource> ();
+		StartTuto();
+	}
 
-		ShowTutoObserve();
+	public void StartTuto() {
+		textMesh.text = InitMessage.Replace("\\n","\n");
+		//On commence le tuto, on peut observer la télé
+		availableInteractions.Add (InteractionType.Observe, new UnityAction (GoalTuto));
+	}
+		
+	public void GoalTuto() {
+		textMesh.text = GoalMessage.Replace("\\n","\n");
+		availableInteractions [InteractionType.Observe] = new UnityAction (HaloTuto);
+		audio.Play ();
+	}
+
+	public void HaloTuto() {
+		textMesh.text = HaloMessage.Replace("\\n","\n");
+		availableInteractions [InteractionType.Observe] = new UnityAction (ShowTutoObserve);
+		audio.Play ();
 	}
 
 	public void ShowTutoObserve() {
-		textMesh.text = "Tu devrais aller regarder le livre \n sur la table derrière toi... \n Appuie sur le bouton \n au milieu de ta mannette";
+		audio.Play ();
+		//On continue le tuto, télé plus observable mais livre observable
+		availableInteractions.Remove (InteractionType.Observe);
+		textMesh.text = ObserveMessage.Replace("\\n","\n");
+
+		//On écoute l'événement pour changer le message (tâche complétée)
+		EventManager.StartListening ("DoneObserving", new UnityAction (ShowTutoUse));
+
+		//On arrête toutes les interactions pour permettre d'observer la télé elle-même
+		GetComponent<BoxCollider> ().enabled = false;
 	}
 
 	public void ShowTutoUse () {
-		textMesh.text = "Il est temps de commencer... \n Appuie sur le bouton, par terre à droite. \n Touche le avec ta baguette.";
+		audio.Play ();
+		//On passe à l'utilisation avec la lampe : on arrête d'écouter l'observation
+		EventManager.StopListening("DoneObserving");
+		textMesh.text = UseMessage.Replace("\\n","\n");
+
+		//On écoute l'événement pour changer le message (tâche complétée)
+		EventManager.StartListening ("DoneUsing", new UnityAction (ShowToTake));
+	}
+
+	public void ShowToTake() {
+		audio.Play ();
+		//On passe au ramassage d'objet : on arrête d'écouter l'utilisation
+		EventManager.StopListening("DoneUsing");
+		textMesh.text = TakeMessage.Replace("\\n","\n");
+
+		EventManager.StartListening ("DoneTaking", new UnityAction (ShowBegin));
+	}
+
+	public void ShowBegin() {
+		audio.Play ();
+		EventManager.StopListening ("DoneTaking");
+		textMesh.text = BeginGameMessage.Replace("\\n","\n");
 	}
 }

@@ -75,7 +75,7 @@ public class PlayerVRInteractions : MonoBehaviour {
 				m_Halo.RemoveHalo ();
 				//On prévient l'objet que l'on ne tente plus d'interagir avec lui
 				if (oldObject != null) {
-					oldObject.EndInteractions ();
+					oldObject.EndInteractions (gameObject);
 					oldObject = null;
 				}
 			}

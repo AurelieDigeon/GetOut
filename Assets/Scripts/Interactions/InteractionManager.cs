@@ -57,8 +57,16 @@ public class InteractionManager  {
 	 */
 	private bool CanUse(GameObject source, InteractionBase target) {
 		if (source.CompareTag ("Player")) {
-			if (target.GetType () == typeof(MainDoorController)) {
-				return GameObject.Find ("Wand").GetComponent<PlayerVRInteractions> ().HasKey;
+			//On regarde si le joueur tient quelque chose
+			FixedJoint fx;
+			if (fx = source.GetComponent<FixedJoint> ()) {
+				//Si le joueur veut utiliser le verrou, il faut qu'il ait ramassé la clé avant !
+				if (target.GetType () == typeof(AtticLockController)) 
+					return fx.connectedBody.gameObject.GetComponent<AtticKeyController> () != null;
+
+				//Si le joueur veut utiliser la porte principale, il faut qu'il ait ramassé la clé du placard avant !
+				if (target.GetType () == typeof(MainDoorController))
+					return fx.connectedBody.gameObject.GetComponent<KeyController> () != null;
 			}
 			return true;
 		}

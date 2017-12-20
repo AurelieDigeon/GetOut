@@ -8,6 +8,7 @@ public class MainDoorController : InteractionBase {
 
 	void Start () {
 		animator = GetComponentInChildren<Animator>();
+
 		EventManager.StartListening("TriggerMainDoor", new UnityAction(TriggerMainDoor));
 
 		availableInteractions.Add (InteractionType.Observe, new UnityAction (ObserveDoor));
@@ -15,6 +16,7 @@ public class MainDoorController : InteractionBase {
 	}
 
 	void TriggerMainDoor() {
+		Debug.Log (animator);
 		animator.SetBool("isOpen", !animator.GetBool("isOpen"));
 	}
 

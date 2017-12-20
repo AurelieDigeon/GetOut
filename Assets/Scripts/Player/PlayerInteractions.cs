@@ -76,12 +76,18 @@ public class PlayerInteractions : MonoBehaviour {
 			//Sinon, on s'assure que le halo n'est pas affiché
 			else {
 				m_Halo.RemoveHalo ();
-				//On prévient l'objet que l'on ne tente plus d'interragir avec lui
+				//On prévient l'objet que l'on arrête son observation, pour faire disparaître le message si c'était le cas
 				if (oldObject != null) {
-					oldObject.EndInteractions ();
-					oldObject = null;
+					oldObject.EndObserve ();
 				}
 			}
+		}
+
+		//Bouton du milieu relâché, on relâche l'objet ramassé s'il existait
+		//Gestion particulière car on veut le relâcher à tous prix, quelles que soient les situations
+		if (Input.GetMouseButtonUp (2) || Input.GetKeyUp ("t")) {
+			if(oldObject != null) 
+				oldObject.EndTake (gameObject);
 		}
 	}
 
@@ -99,15 +105,19 @@ public class PlayerInteractions : MonoBehaviour {
 			if (interactions.TryGetValue (InteractionType.Observe, out observe))
 				observe.Invoke ();
 		}
-		//Bouton droit pressé, utilisation OU récupération
+		//Bouton droit pressé, utilisation
 		else if (Input.GetMouseButtonDown (1)) {
 			UnityAction use;
-			UnityAction take;
-			if(interactions.TryGetValue(InteractionType.Use, out use))
+			if (interactions.TryGetValue (InteractionType.Use, out use))
 				use.Invoke ();
-			if(interactions.TryGetValue(InteractionType.Take, out take))
-				take.Invoke ();
 		}
+
+		//Bouton du milieu pressé, ramassage (ou touche t, parce que mon bouton du milieu ne fonctionne plus ;)
+		else if (Input.GetMouseButtonDown (2) || Input.GetKeyDown ("t")) {
+			UnityAction take;
+			if (interactions.TryGetValue (InteractionType.Take, out take))
+				take.Invoke ();
+		} 
 	}
 
 	/**

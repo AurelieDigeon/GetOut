@@ -15,8 +15,21 @@ using UnityEngine.Events;
  */
 public abstract class InteractionBase : MonoBehaviour {
 	protected InteractionManager im = InteractionManager.Instance;
+
+	/**
+	 * Dictionnaire des interactions possibles selon l'état => interne <= de l'objet uniquement
+	 */
 	protected Dictionary<InteractionType, UnityAction> availableInteractions = new Dictionary<InteractionType, UnityAction>();
+
+	/**
+	 * Référence vers le composant contenant les interactions par défaut
+	 */
 	protected InteractionDefault defaultInteractions;
+
+	/**
+	 * Référence vers le dernier objet ayant tenté d'interagir avec l'objet courant
+	 */
+	protected GameObject source;
 
 	private void Awake() {
 		//Récupération de l'instance des interactions par défaut
@@ -31,6 +44,9 @@ public abstract class InteractionBase : MonoBehaviour {
 	public Dictionary<InteractionType, UnityAction> GetInteractions (GameObject source) {
 		var interactions = new Dictionary<InteractionType, UnityAction> ();
 
+		//Sauvegarde
+		this.source = source;
+
 		//Pour chaque interaction proposée par l'objet, si elle est réalisable dans le contexte actuel, on l'ajoute
 		foreach (var pair in availableInteractions) {
 			if (im.CanInteract(source, this, pair.Key))
@@ -41,8 +57,24 @@ public abstract class InteractionBase : MonoBehaviour {
 
 	/**
 	 * Façade générique pour la méthode d'arrêt des interactions par défaut
+	 * @param source Source de l'interaction
 	 */
-	public void EndInteractions() {
-		defaultInteractions.EndInteractions ();
+	public void EndInteractions(GameObject source) {
+		defaultInteractions.EndInteractions (source);
+	}
+
+	/**
+	 * Façade générique pour la méthode d'arrêt de l'observation par défaut
+	 */
+	public void EndObserve() {
+		defaultInteractions.EndObserve ();
+	}
+
+	/**
+	 * Façade générique pour la méthode d'arrêt du ramassage par défaut
+	 * @param source Source de l'interaction
+	 */
+	public void EndTake(GameObject source) {
+		defaultInteractions.EndTake (source);
 	}
 }

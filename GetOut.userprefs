@@ -1,14 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Materials\Custom Materials\VRUIShader.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Interactions\InteractionDefault.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player\RightHandController.cs" Line="16" Column="2" />
-      <File FileName="Assets\Scripts\Player\FirstPersonControllerVR.cs" Line="64" Column="10" />
-      <File FileName="Assets\Scripts\Interactions\InteractionManager.cs" Line="61" Column="58" />
-      <File FileName="Assets\Scripts\Player\PlayerVRInteractions.cs" Line="94" Column="37" />
-      <File FileName="Assets\Scripts\Interactions\InteractionDefault.cs" Line="34" Column="5" />
-      <File FileName="Assets\Objects\Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" Line="31" Column="9" />
-      <File FileName="Assets\Materials\Custom Materials\VRUIShader.shader" Line="24" Column="3" />
+      <File FileName="Assets\Scripts\Player\RightHandController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\FirstPersonControllerVR.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Interactions\InteractionManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\PlayerVRInteractions.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Interactions\InteractionDefault.cs" Line="61" Column="41" />
+      <File FileName="Assets\Objects\Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" Line="1" Column="1" />
+      <File FileName="Assets\Materials\Custom Materials\VRUIShader.shader" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ObjectController\TutoTextController.cs" Line="29" Column="3" />
+      <File FileName="Assets\Scripts\ObjectController\TutoBookInteraction.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Events\EventManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
