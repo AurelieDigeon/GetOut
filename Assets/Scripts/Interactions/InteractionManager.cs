@@ -57,16 +57,21 @@ public class InteractionManager  {
 	 */
 	private bool CanUse(GameObject source, InteractionBase target) {
 		if (source.CompareTag ("Player")) {
-			//On regarde si le joueur tient quelque chose
 			FixedJoint fx;
-			if (fx = source.GetComponent<FixedJoint> ()) {
-				//Si le joueur veut utiliser le verrou, il faut qu'il ait ramassé la clé avant !
-				if (target.GetType () == typeof(AtticLockController)) 
+			//Si le joueur veut utiliser le verrou, il faut qu'il ait ramassé la clé avant !
+			if (target.GetType () == typeof(AtticLockController)) {
+				//On regarde si le joueur tient quelque la clé
+				if (fx = source.GetComponent<FixedJoint> ())
 					return fx.connectedBody.gameObject.GetComponent<AtticKeyController> () != null;
+				return false;
+			}
 
 				//Si le joueur veut utiliser la porte principale, il faut qu'il ait ramassé la clé du placard avant !
-				if (target.GetType () == typeof(MainDoorController))
+			if (target.GetType () == typeof(MainDoorController)) {
+				//On regarde si le joueur tient quelque la clé du placard
+				if (fx = source.GetComponent<FixedJoint> ())
 					return fx.connectedBody.gameObject.GetComponent<KeyController> () != null;
+				return false;
 			}
 			return true;
 		}

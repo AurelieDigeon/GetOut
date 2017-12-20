@@ -87,8 +87,8 @@ public class InteractionDefault : MonoBehaviour {
 	private void AddFixedJoint(GameObject source, GameObject target) {
 		//Création d'un liaison sur la source
 		FixedJoint fx = source.AddComponent<FixedJoint> ();
-		fx.breakForce = 200000;
-		fx.breakTorque = 200000;
+		fx.breakForce = 2000000;
+		fx.breakTorque = 2000000;
 
 		//Liaison de la source et l'objet visé
 		fx.connectedBody = target.GetComponent<Rigidbody>();

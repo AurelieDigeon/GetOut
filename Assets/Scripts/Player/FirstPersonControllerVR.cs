@@ -94,6 +94,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void FixedUpdate()
         {
+			//On ramène toujours le collider au niveau de la caméra, au cas où elle bouge spontanément
+			var charCont = GetComponent<CharacterController>();
+			charCont.center = (m_Camera.transform.position - transform.position) / transform.localScale.y;
+			charCont.height = (InputTracking.GetLocalPosition (VRNode.Head).y);
+			charCont.center = new Vector3(charCont.center.x, charCont.height / 2, charCont.center.z);
+
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
@@ -206,7 +212,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // Read input
             float horizontal = Input.GetAxis("Horizontal");
 			float vertical = Input.GetAxis("Vertical");
-
             bool waswalking = m_IsWalking;
 
 #if !MOBILE_INPUT

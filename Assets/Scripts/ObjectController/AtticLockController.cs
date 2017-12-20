@@ -10,6 +10,7 @@ public class AtticLockController : InteractionBase {
 	}
 
 	void UseLock() {
+		Debug.Log ("UseLock");
 		//On ne peut utiliser le verrou qu'une seule fois
 		availableInteractions.Remove (InteractionType.Use);
 

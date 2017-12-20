@@ -75,7 +75,7 @@ public class PlayerVRInteractions : MonoBehaviour {
 				m_Halo.RemoveHalo ();
 				//On prévient l'objet que l'on ne tente plus d'interagir avec lui
 				if (oldObject != null) {
-					oldObject.EndInteractions (gameObject);
+					oldObject.EndObserve ();
 					oldObject = null;
 				}
 			}
@@ -95,15 +95,6 @@ public class PlayerVRInteractions : MonoBehaviour {
 			UnityAction observe;
 			if (interactions.TryGetValue (InteractionType.Observe, out observe))
 				observe.Invoke ();
-		}
-		//Bouton droit pressé, utilisation OU récupération
-		else if (Input.GetMouseButtonDown (1)) {
-			UnityAction use;
-			UnityAction take;
-			if(interactions.TryGetValue(InteractionType.Use, out use))
-				use.Invoke ();
-			if(interactions.TryGetValue(InteractionType.Take, out take))
-				take.Invoke ();
 		}
 	}
 
