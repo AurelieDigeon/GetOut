@@ -40,13 +40,13 @@ public class RightHandController : MonoBehaviour {
 
 	void Update () {
 		//Position de la manette
-		Vector3 handPosition = InputTracking.GetLocalPosition(VRNode.RightHand);
-		Vector3 headPosition = InputTracking.GetLocalPosition (VRNode.Head);
+		Vector3 handPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand);
+		Vector3 headPosition = UnityEngine.XR.InputTracking.GetLocalPosition (UnityEngine.XR.XRNode.Head);
 		//On change la position en maintenant l'offset réel entre tête et main
 		transform.position = Camera.main.transform.position - (headPosition - handPosition) * 1.3f + new Vector3(0, 0, 0);
 
 		//On maintient également la rotation
-		Vector3 rotAngles = InputTracking.GetLocalRotation (VRNode.RightHand).eulerAngles + new Vector3 (90, 0, 0);
+		Vector3 rotAngles = UnityEngine.XR.InputTracking.GetLocalRotation (UnityEngine.XR.XRNode.RightHand).eulerAngles + new Vector3 (90, 0, 0);
 		transform.rotation = Quaternion.Euler(rotAngles);
 	}
 
