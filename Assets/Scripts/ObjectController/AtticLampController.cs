@@ -12,7 +12,7 @@ public class AtticLampController : InteractionBase {
 	public Material mat;
 
 	void Start () {
-		lightning = gameObject.GetComponentInChildren<Light> ();
+		lightning = GetComponentInChildren<Light> ();
 		availableInteractions.Add (InteractionType.Observe, new UnityAction(YeahSorryButThisIsNotTheRightThingToDoJustUseTheLamp));	
 		availableInteractions.Add (InteractionType.Use, new UnityAction(ToggleLight));		
 	}

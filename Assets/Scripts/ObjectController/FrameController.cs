@@ -21,6 +21,7 @@ public class FrameController : InteractionBase {
 	void UseFrame() {
 		if (!isOpen) {
 			GetComponent<Animation> ().Play ("FrameOpen");
+			GetComponent<AudioSource> ().Play ();
 			isOpen = true;
 		}
 	}

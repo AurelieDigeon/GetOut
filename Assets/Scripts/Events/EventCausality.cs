@@ -33,5 +33,8 @@ public class EventCausality : MonoBehaviour {
 		//Puzzle cassé : on allume la cheminée et on désactive la clé
 		EventManager.AddCausality ("PuzzleBroken", "TurnOnFireplace");
 		EventManager.AddCausality ("PuzzleBroken", "HideMainKey");
+
+		//Trappe fermée : on arrête la lumière clignotante
+		EventManager.AddCausality("CloseTrapdoor", "StopFlickering");
 	}
 }

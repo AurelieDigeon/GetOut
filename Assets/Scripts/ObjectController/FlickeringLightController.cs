@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FlickeringLightController : MonoBehaviour {
 
 	//Material duquel controller l'émission
-
 	public Material mat;
+
+	//Indique si on doit continuer de clignoter
+	private bool again = true;
+
 	// the (comparatively) steady light phase
 	public float minLightMs =  50;
 	public float maxLightMs =  100;
@@ -29,10 +33,12 @@ public class FlickeringLightController : MonoBehaviour {
 	void Start () {
 		_light = GetComponent<Light>();
 		StartCoroutine("Flicker");
+
+		EventManager.StartListening ("StopFlickering", new UnityAction (StopFlicker));
 	}
 
 	IEnumerator Flicker () {
-		while (true) {
+		while (again) {
 			// steady light period
 			_light.enabled = true;
 			mat.EnableKeyword ("_EMISSION");
@@ -47,5 +53,9 @@ public class FlickeringLightController : MonoBehaviour {
 				yield return new WaitForSeconds(Random.Range(minFlickMs, maxFlickMs)/1000f);
 			}
 		}
+	}
+
+	public void StopFlicker() {
+		again = false;
 	}
 }
