@@ -66,13 +66,22 @@ public class InteractionManager  {
 				return false;
 			}
 
-				//Si le joueur veut utiliser la porte principale, il faut qu'il ait ramassé la clé du placard avant !
+			//Si le joueur veut utiliser la porte principale, il faut qu'il ait ramassé la clé du placard avant !
 			if (target.GetType () == typeof(MainDoorController)) {
 				//On regarde si le joueur tient quelque la clé du placard
 				if (fx = source.GetComponent<FixedJoint> ())
 					return fx.connectedBody.gameObject.GetComponent<KeyController> () != null;
 				return false;
 			}
+
+			//Si le joueur veut ouvrir le tableau, il faut qu'il ait ramassé le pinceau avant !
+			if (target.GetType () == typeof(FrameController)) {
+				//On regarde si le joueur tient quelque la clé du placard
+				if (fx = source.GetComponent<FixedJoint> ())
+					return fx.connectedBody.gameObject.GetComponent<BrushController> () != null;
+				return false;
+			}
+				
 			return true;
 		}
 		return false;
