@@ -1,4 +1,6 @@
-# GetOut : VR escape game
+# Get Out : a VR escape game
+
+Get Out! You wake up locked up in a strange room which seems abandoned for a while. No way to know where you are, and all exits are locked off. You're stucked here. Unless... An old TV learns you to interact with your environment : look for the hints, discover the room secrets and solve the puzzles ! Will you finally get out ?
 
 ## Play the game
 
