@@ -4,28 +4,41 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class KeyController : InteractionBase {
+	public void Start () {
+		//La clé est cachée jusqu'à déclenchement de l'événement
+		ShowHalo = false;
 
-	//TODO remplacer par le système d'inventaire
-	public GameObject player;
-
-	//TODO remplacer par le système d'inventaire
-	private AudioSource putInBag;
-
-	void Start () {
-		putInBag = GetComponent<AudioSource> ();
-
-		availableInteractions.Add (InteractionType.Observe, new UnityAction (ObserveKey));
-		availableInteractions.Add (InteractionType.Take, new UnityAction (TakeKey));
+		EventManager.StartListening ("ShowMainKey", new UnityAction (ShowKey));
+		EventManager.StartListening ("HideMainKey", new UnityAction (ShowKey));
 	}
 
-	void ObserveKey() {
-		defaultInteractions.Observe ("Cette clé pourrait bien me servir...");
+	public void ObserveKey() {
+		defaultInteractions.Observe ("Quel drôle d'endroit pour ranger une clé...");
 	}
 
-	void TakeKey() {
-		defaultInteractions.Observe ("Vous avez ramassé la clé !");
-		putInBag.Play ();
-		gameObject.GetComponent<MeshRenderer> ().enabled = false;
-		player.GetComponent<PlayerInteractions> ().HasKey = true;
+	public void TakeKey() {
+		defaultInteractions.Take (source, gameObject);
+	}
+
+	/**
+	 * Méthode d'activation de la clé et d'autorisation des interactions / affichage du halo
+	 */
+	public void ShowKey() {
+		ShowHalo = true;
+
+		if(!availableInteractions.ContainsKey(InteractionType.Observe))
+			availableInteractions.Add (InteractionType.Observe, new UnityAction (ObserveKey));
+		if(!availableInteractions.ContainsKey(InteractionType.Take))
+			availableInteractions.Add (InteractionType.Take, new UnityAction (TakeKey));
+	}
+
+	//Cache la clé, le halo et empêche les interactions
+	public void HideKey() {
+		ShowHalo = false;
+
+		if(availableInteractions.ContainsKey(InteractionType.Observe))
+			availableInteractions.Remove (InteractionType.Observe);
+		if(availableInteractions.ContainsKey(InteractionType.Take))
+			availableInteractions.Remove (InteractionType.Take);
 	}
 }

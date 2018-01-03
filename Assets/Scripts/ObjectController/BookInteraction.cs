@@ -15,6 +15,6 @@ public class BookInteraction : InteractionBase {
 	}
 
 	public void ObserveBook() {
-		defaultInteractions.Observe (message);	
+		defaultInteractions.Observe (message);
 	}
 }

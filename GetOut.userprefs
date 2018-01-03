@@ -1,13 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GlowShader.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ObjectController\BrushController.cs">
     <Files>
-      <File FileName="Assets\Scripts\Tests\Interactions\InteractionTest.cs" Line="7" Column="47" />
-      <File FileName="Assets\Scripts\Player\PlayerInteractions.cs" Line="51" Column="55" />
-      <File FileName="Assets\Scripts\SwitchController.cs" Line="16" Column="48" />
-      <File FileName="Assets\Scripts\Interactions\InteractionBase.cs" Line="23" Column="70" />
-      <File FileName="Assets\Scripts\Interactions\InteractionManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GlowShader.shader" Line="40" Column="57" />
+      <File FileName="Assets\Scripts\ObjectController\RunesManager.cs" Line="37" Column="22" />
+      <File FileName="Assets\Scripts\Events\EventCausality.cs" Line="35" Column="51" />
+      <File FileName="Assets\Scripts\ObjectController\KeyController.cs" Line="42" Column="3" />
+      <File FileName="Assets\Scripts\Interactions\InteractionBase.cs" Line="41" Column="3" />
+      <File FileName="Assets\Scripts\Player\PlayerInteractions.cs" Line="63" Column="4" />
+      <File FileName="Assets\Scripts\Events\EventManager.cs" Line="88" Column="2" />
+      <File FileName="Assets\Scripts\ObjectController\FireplaceController.cs" Line="20" Column="11" />
+      <File FileName="Assets\Scripts\ObjectController\MainDoorController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ObjectController\EndTriggerController.cs" Line="13" Column="68" />
+      <File FileName="Assets\Scripts\ObjectController\TutoTextController.cs" Line="10" Column="27" />
+      <File FileName="Assets\Scripts\ObjectController\FrameController.cs" Line="8" Column="17" />
+      <File FileName="Assets\Scripts\ObjectController\BrushController.cs" Line="11" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

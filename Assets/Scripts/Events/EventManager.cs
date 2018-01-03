@@ -73,6 +73,14 @@ public class EventManager {
 	}
 
 	/**
+	 * Enlève tous les callbacks d'un événement
+	 * @param name Nom de l'événement
+	 */
+	public static void StopListening(string name) {
+		Instance.events.Remove (name);
+	}
+
+	/**
 	 * Ajoute un lien de causalité avec un événement
 	 * @param afterEvent Action déclencheuse
 	 * @param invokeEvent Evénement à déclencher après l'exécution de afterEvent

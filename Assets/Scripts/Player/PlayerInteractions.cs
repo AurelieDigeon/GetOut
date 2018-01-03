@@ -13,6 +13,11 @@ public class PlayerInteractions : MonoBehaviour {
 	public GameObject HaloPrefab;
 
 	/**
+	 * Vitesse des objets ramassés
+	 */
+	public int TakenSpeed;
+
+	/**
 	 * Caméra depuis laquelle lancer le raycasting
 	 */
 	private Camera m_Camera;
@@ -31,9 +36,6 @@ public class PlayerInteractions : MonoBehaviour {
 	 * Sauvegarde de l'objet Interactable précédemment raycasté
 	 */
 	private InteractionBase oldObject = null;
-
-	//TODO à remplacer par le système d'inventaire
-	public bool HasKey = false;
 
 	void Start() {
 		m_Camera = Camera.main;
@@ -65,22 +67,28 @@ public class PlayerInteractions : MonoBehaviour {
 			if ((objScript = obj.GetComponent<InteractionBase> ()) != null) {
 				oldObject = objScript;
 
-				/* Le piano bugge au niveau des positions des touches, elles sont toutes à 0/0/0 (typique d'un import).
-				Le halo s'affiche donc mal, on le désactive dans ce cas. TODO faire ça plus proprement */
-				if(!(objScript is PianoKeyController))
+				//Afficher le halo en fonction de la propriété dédiée
+				if(objScript.ShowHalo)
 					m_Halo.SwitchHalo (obj);
-
+				
 				//Gestion des entrées de l'utilisateur
 				CheckInputs (objScript);
 			}
 			//Sinon, on s'assure que le halo n'est pas affiché
 			else {
 				m_Halo.RemoveHalo ();
-				//On prévient l'objet que l'on ne tente plus d'interragir avec lui
+				//On prévient l'objet que l'on arrête son observation, pour faire disparaître le message si c'était le cas
 				if (oldObject != null) {
-					oldObject.EndInteractions ();
-					oldObject = null;
+					oldObject.EndObserve ();
 				}
+			}
+		}
+
+		//Bouton du milieu relâché, on relâche l'objet ramassé s'il existait
+		//Gestion particulière car on veut le relâcher à tous prix, quelles que soient les situations
+		if (Input.GetMouseButtonUp (2) || Input.GetKeyUp ("t")) {
+			if (oldObject != null) {
+				oldObject.EndTake (gameObject);
 			}
 		}
 	}
@@ -99,15 +107,19 @@ public class PlayerInteractions : MonoBehaviour {
 			if (interactions.TryGetValue (InteractionType.Observe, out observe))
 				observe.Invoke ();
 		}
-		//Bouton droit pressé, utilisation OU récupération
+		//Bouton droit pressé, utilisation
 		else if (Input.GetMouseButtonDown (1)) {
 			UnityAction use;
-			UnityAction take;
-			if(interactions.TryGetValue(InteractionType.Use, out use))
+			if (interactions.TryGetValue (InteractionType.Use, out use))
 				use.Invoke ();
-			if(interactions.TryGetValue(InteractionType.Take, out take))
-				take.Invoke ();
 		}
+
+		//Bouton du milieu pressé, ramassage (ou touche t, parce que mon bouton du milieu ne fonctionne plus ;)
+		else if (Input.GetMouseButtonDown (2) || Input.GetKeyDown ("t")) {
+			UnityAction take;
+			if (interactions.TryGetValue (InteractionType.Take, out take))
+				take.Invoke ();
+		} 
 	}
 
 	/**
