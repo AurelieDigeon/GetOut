@@ -2,6 +2,8 @@
 
 Get Out! You wake up locked up in a strange room which seems abandoned for a while. No way to know where you are, and all exits are locked off. You're stucked here. Unless... An old TV learns you to interact with your environment : look for the hints, discover the room secrets and solve the puzzles ! Will you finally get out ?
 
+![](image.png?raw=true)
+
 ## Play the game
 
 GetOut is an escape game made with Unity made for the RV01 course in UTC (Virtual Reality initiation). Your goal is to get out of the room by solving puzzles.
